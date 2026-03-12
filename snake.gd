@@ -10,11 +10,11 @@ var next_direction = Vector2i(1, 0)  # Buffer for next direction
 var game_over = false
 
 func _ready():
-	# Initialize snake with 3 segments
+	# Initialize snake with 3 segments at center of screen
 	body_segments = [
-		Vector2i(10, 10),
-		Vector2i(9, 10),
-		Vector2i(8, 10)
+		Vector2i(20, 15),  # Head at center (40x30 grid center)
+		Vector2i(19, 15),  # Body segment 1
+		Vector2i(18, 15)   # Body segment 2
 	]
 
 func _process(_delta):
@@ -41,7 +41,7 @@ func move_snake():
 	# Calculate new head position
 	var new_head = body_segments[0] + direction
 	
-	# Check grid boundaries
+	# Check grid boundaries (40x30 grid)
 	if new_head.x < 0 or new_head.x >= 40 or new_head.y < 0 or new_head.y >= 30:
 		trigger_game_over()
 		return
@@ -82,10 +82,11 @@ func trigger_game_over():
 	get_parent().show_game_over()
 
 func reset():
+	# Reset snake to center position
 	body_segments = [
-		Vector2i(10, 10),
-		Vector2i(9, 10),
-		Vector2i(8, 10)
+		Vector2i(20, 15),  # Head at center
+		Vector2i(19, 15),  # Body segment 1
+		Vector2i(18, 15)   # Body segment 2
 	]
 	direction = Vector2i(1, 0)
 	next_direction = Vector2i(1, 0)
