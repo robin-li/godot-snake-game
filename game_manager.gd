@@ -32,8 +32,15 @@ func update_score_label():
 func show_game_over():
 	game_over_label.visible = true
 
+func show_game_won():
+	# Show game won message (snake fills entire grid)
+	game_over_label.text = "YOU WIN!\nSnake filled the entire grid!\nPress SPACE to restart"
+	game_over_label.visible = true
+	snake.game_over = true
+
 func reset_game():
 	score = 0
+	game_over_label.text = "GAME OVER\nPress SPACE to restart"
 	game_over_label.visible = false
 	snake.reset()
 	food.respawn()
