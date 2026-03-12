@@ -42,6 +42,10 @@ func reset_game():
 	score = 0
 	game_over_label.text = "GAME OVER\nPress SPACE to restart"
 	game_over_label.visible = false
-	snake.reset()
+	# 必須先重置 snake 的 game_over 狀態再呼叫 reset()
+	snake.reset()  # reset() 中已經設 game_over = false
 	food.respawn()
 	update_score_label()
+	# 強制重繪
+	snake.queue_redraw()
+	food.queue_redraw()
