@@ -8,7 +8,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	rng.randomize()
-	respawn()
+	# 使用延遲呼叫確保 snake 先初始化
+	call_deferred("respawn")
 
 func respawn():
 	# Generate random position avoiding snake body
