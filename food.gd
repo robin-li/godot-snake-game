@@ -27,7 +27,7 @@ func respawn():
 	queue_redraw()
 
 func draw_food():
-	var food_pos = position_grid * GRID_SIZE + Vector2(GRID_SIZE / 2, GRID_SIZE / 2)
+	var food_pos = (position_grid * GRID_SIZE).as_vector2() + Vector2(GRID_SIZE / 2.0, GRID_SIZE / 2.0)
 	draw_circle(food_pos, GRID_SIZE / 2 - 2, FOOD_COLOR)
 
 func _draw():

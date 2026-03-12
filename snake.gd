@@ -66,12 +66,12 @@ func move_snake():
 
 func draw_snake():
 	# Draw head
-	var head_pos = body_segments[0] * GRID_SIZE + Vector2(GRID_SIZE / 2, GRID_SIZE / 2)
+	var head_pos = (body_segments[0] * GRID_SIZE).as_vector2() + Vector2(GRID_SIZE / 2.0, GRID_SIZE / 2.0)
 	draw_circle(head_pos, GRID_SIZE / 2 - 1, HEAD_COLOR)
 	
 	# Draw body
 	for i in range(1, body_segments.size()):
-		var segment_pos = body_segments[i] * GRID_SIZE + Vector2(GRID_SIZE / 2, GRID_SIZE / 2)
+		var segment_pos = (body_segments[i] * GRID_SIZE).as_vector2() + Vector2(GRID_SIZE / 2.0, GRID_SIZE / 2.0)
 		draw_circle(segment_pos, GRID_SIZE / 2 - 1, BODY_COLOR)
 
 func _draw():
