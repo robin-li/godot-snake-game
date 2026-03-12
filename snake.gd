@@ -16,6 +16,7 @@ func _ready():
 		Vector2i(19, 15),  # Body segment 1
 		Vector2i(18, 15)   # Body segment 2
 	]
+	queue_redraw()  # 必須初始化時就畫出蛇
 
 func _process(_delta):
 	if not game_over:
